@@ -12,9 +12,7 @@ The "Self-Attention with Relative Position Representations" extends the original
    - Output sequence $z=\left(z_{1}, \ldots, z_{n}\right)$ with dimension $d_z$.
 
 2. **Computation of $z_i$:**
-   $$
-z_{i}=\sum_{j=1}^{n} \alpha_{i j}\left(x_{j} W^{V}\right)
-$$
+$$z_{i}=\sum_{j=1}^{n} \alpha_{i j}\left(x_{j} W^{V}\right)$$
 
 3. **Weight Coefficients $\alpha_{ij}\$:**
    $$
