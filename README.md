@@ -15,14 +15,10 @@ The "Self-Attention with Relative Position Representations" extends the original
 $$z_{i}=\sum_{j=1}^{n} \alpha_{i j}\left(x_{j} W^{V}\right)$$
 
 3. **Weight Coefficients $\alpha_{ij}\$:**
-   $$
-\alpha_{i j}=\frac{\exp e_{i j}}{\sum_{k=1}^{n} \exp e_{i k}}
-$$
+   $$\alpha_{i j}=\frac{\exp e_{i j}}{\sum_{k=1}^{n} \exp e_{i k}}$$
 
 4. **Compatibility Function $e_{ij}$:**
-$$
-e_{i j}=\frac{\left(x_{i} W^{Q}\right)\left(x_{j} W^{K}\right)^{T}}{\sqrt{d_{z}}}
-$$
+$$e_{i j}=\frac{\left(x_{i} W^{Q}\right)\left(x_{j} W^{K}\right)^{T}}{\sqrt{d_{z}}}$$
 
 ### **Relation-aware Self-Attention**
 
@@ -32,13 +28,9 @@ $$
    - Edges can capture information about the relative position differences between input elements.
 
 2. **Modification of $z_i$ with Edge Information $a_{ij}^V$:**
-   $$
-z_{i}=\sum_{j=1}^{n} \alpha_{i j}\left(x_{j} W^{V}+a_{i j}^{V}\right)
-$$
+   $$z_{i}=\sum_{j=1}^{n} \alpha_{i j}\left(x_{j} W^{V}+a_{i j}^{V}\right)$$
 3. **Modification of Compatibility Function with Edge Information $a_{ij}^K$:**
-$$
-e_{i j}=\frac{x_{i} W^{Q}\left(x_{j} W^{K}+a_{i j}^{K}\right)^{T}}{\sqrt{d_{z}}}
-$$
+$$e_{i j}=\frac{x_{i} W^{Q}\left(x_{j} W^{K}+a_{i j}^{K}\right)^{T}}{\sqrt{d_{z}}}$$
 
 ### **Relative Position Representations**
 
@@ -50,13 +42,10 @@ $$
 2. **Learnable Relative Position Representations:**
    - $a_{ij}^K, a_{ij}^V$ are determined using learnable relative position representations $w^K, w^V$.
    - Clipping function:
-$$
-\begin{aligned}
-a_{i j}^{K} & =w_{\operatorname{clip}(j-i, k)}^{K} \\
-a_{i j}^{V} & =w_{\operatorname{clip}(j-i, k)}^{V} \\
-\operatorname{clip}(x, k) & =\max (-k, \min (k, x))
-\end{aligned}
-$$
+$$a_{ij}^K = w_{\text{clip}(j-i, k)}^K$$
+$$a_{ij}^V = w_{\text{clip}(j-i, k)}^V$$
+$$\text{clip}(x, k) = \max(-k, \min(k, x))$$
+
 
 3. **Learnable Vectors \( w^K, w^V \):**
    - $w^K = (w_{-k}^K, \ldots, w_k^K)$
